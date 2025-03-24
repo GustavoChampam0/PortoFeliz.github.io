@@ -1,3 +1,4 @@
+/* Reset e Configurações Básicas */
 * {
    margin: 0;
    padding: 0;
@@ -5,7 +6,7 @@
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Header Styles */
+/* Header */
 header {
    background-color: white;
    padding: 1rem;
@@ -22,6 +23,7 @@ header {
    justify-content: space-between;
    align-items: center;
    height: 60px;
+   padding: 0 1rem;
 }
 
 .logo {
@@ -35,8 +37,10 @@ header {
    width: 100px;
 }
 
-.img-logo-footer {
-   width: 200px;
+/* Menu de Navegação */
+.nav-links {
+   display: flex;
+   align-items: center;
 }
 
 .nav-links a {
@@ -44,10 +48,18 @@ header {
    color: #2c3e50;
    margin-left: 2rem;
    font-weight: 500;
+   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
    color: #2980b9;
+}
+
+/* Menu Hambúrguer para Mobile */
+.menu-toggle {
+   display: none;
+   font-size: 1.5rem;
+   cursor: pointer;
 }
 
 /* Hero Section */
@@ -83,7 +95,7 @@ header {
 .carousel-item video {
    width: 100%;
    height: 500px;
-   object-fit: cover; /* Mantém proporção para imagens e vídeos */
+   object-fit: cover;
 }
 
 /* Results Section */
@@ -110,7 +122,6 @@ header {
 /* Cards */
 .spot-card {
    width: 300px;
-   height: auto;
    max-height: 550px;
    display: flex;
    flex-direction: column;
@@ -119,17 +130,15 @@ header {
    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
    border-radius: 12px;
    background-color: #fff;
-   box-sizing: border-box;
    overflow: hidden;
    transition: transform 0.3s ease, box-shadow 0.3s ease;
-   opacity: 0; /* Começa invisível para o efeito fade-in */
-   animation: fadeIn 0.5s ease forwards; /* Animação de fade-in */
+   opacity: 0;
+   animation: fadeIn 0.5s ease forwards;
 }
 
 .spot-card:hover {
    transform: translateY(-8px);
-   box-shadow: 0 6px 15px rgba(0, 0, 
-   0, 0.2);
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .spot-card img {
@@ -152,7 +161,7 @@ header {
    color: #666;
 }
 
-/* Efeito fade-in com atraso progressivo */
+/* Animação Fade-in */
 @keyframes fadeIn {
    from {
       opacity: 0;
@@ -175,6 +184,7 @@ header {
 .spot-card:nth-child(9) { animation-delay: 0.9s; }
 .spot-card:nth-child(10) { animation-delay: 1.0s; }
 
+/* Botões */
 .btn {
    padding: 1rem 2rem;
    border: none;
@@ -193,18 +203,6 @@ header {
    background-color: #2980b9;
 }
 
-@media (max-width: 768px) {
-   .spot-card {
-      width: 100%;
-      margin-bottom: 20px;
-   }
-
-   .spot-grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
-   }
-}
-
 /* Testimonial Section */
 .testimonial-section {
    padding: 4rem 1rem;
@@ -220,7 +218,7 @@ header {
 
 .testimonial {
    max-width: 800px;
-   margin: 0 auto 1.5rem auto; /* Margem inferior para separar múltiplos depoimentos */
+   margin: 0 auto 1.5rem auto;
    background-color: white;
    padding: 2rem;
    border-radius: 8px;
@@ -350,6 +348,10 @@ footer {
    text-align: center;
 }
 
+.img-logo-footer {
+   width: 200px;
+}
+
 .social-links {
    margin-top: 2rem;
 }
@@ -358,4 +360,127 @@ footer {
    color: white;
    margin: 0 1rem;
    font-size: 1.5rem;
+}
+
+/* Responsividade para Tablets e Notebooks */
+@media (max-width: 1024px) {
+   .header-content {
+      padding: 0 1rem;
+   }
+   .nav-links a {
+      margin-left: 1rem;
+   }
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 768px) {
+   /* Header e Menu */
+   .header-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+   }
+   .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      width: 100%;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+   }
+   .nav-links a {
+      margin: 1rem;
+      padding: 1rem;
+      display: block;
+      text-align: center;
+   }
+   .menu-toggle {
+      display: block;
+   }
+
+   /* Hero Section */
+   .hero {
+      height: 60vh;
+      padding: 2rem 1rem;
+   }
+   .hero h1 {
+      font-size: 2rem;
+   }
+   .hero p {
+      font-size: 1rem;
+   }
+
+   /* Carrossel */
+   .carousel-item img,
+   .carousel-item video {
+      height: 300px;
+   }
+
+   /* Cards */
+   .spot-grid {
+      grid-template-columns: 1fr;
+   }
+   .spot-card {
+      width: 100%;
+      max-width: 100%;
+   }
+
+   /* Testemunhos e Dicas */
+   .testimonial {
+      padding: 1.5rem;
+   }
+   .dicas-container {
+      padding: 0 1rem;
+   }
+
+   /* Modal */
+   .modal-content {
+      width: 90%;
+      max-width: 500px;
+      padding: 1.5rem;
+   }
+
+   /* Footer */
+   .footer-content {
+      padding: 2rem 1rem;
+   }
+   .img-logo-footer {
+      width: 150px;
+   }
+}
+
+/* Responsividade para Celulares Pequenos */
+@media (max-width: 480px) {
+   .hero {
+      height: 50vh;
+   }
+   .hero h1 {
+      font-size: 1.8rem;
+   }
+   .hero p {
+      font-size: 0.9rem;
+   }
+   .carousel-item img,
+   .carousel-item video {
+      height: 250px;
+   }
+   .btn {
+      padding: 0.8rem 1.5rem;
+   }
+   .btn-voltar {
+      padding: 0.6rem 1rem;
+   }
+   .testimonial p {
+      font-size: 1rem;
+   }
+   .img-logo-footer {
+      width: 120px;
+   }
+}
+
+/* Menu Mobile: Exibe o menu ao clicar no botão */
+.nav-links.show {
+   display: flex;
 }
