@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porto Feliz por Nós - Descubra Nossa Cidade</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/index.js"></script>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="#home"><img class="img-logo" src="./img/traveling-logo.png" alt="Logo Porto Feliz por Nós"></a>
+                Porto Feliz por Nós
+            </div>
+            <nav class="nav-links">
+                <a href="#home">Início</a>
+                <a href="#spots">Lugares</a>
+                <a href="#testimonial">Histórias</a>
+                <a href="#dicas">Dicas</a>
+                <a href="#contact">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Explore Porto Feliz com a Gente</h1>
+            <p>Descubra os cantinhos que amamos nesta cidade cheia de história e memórias, como as histórias da vovó!</p>
+            <button class="btn btn-primary" onclick="document.getElementById('spots').scrollIntoView({behavior: 'smooth'})">Descubra Agora</button>
+        </div>
+    </section>
+
+    <!-- Carrossel com Fotos e Vídeos -->
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./img/parquemonçoes.jp" class="d-block w-100" alt="Parque das Monções">
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <video class="d-block w-100" controls>
+                    <source src="./videos/igreja.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="./img/praça.jp" class="d-block w-100" alt="Praça da Matriz">
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="./img/estação.jpg" class="d-block w-100" alt="Estação Cultural">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
+
+    <!-- Seção de Pontos Turísticos -->
+    <section class="results-section" id="spots">
+        <h2>Nossos Lugares Favoritos em Porto Feliz</h2>
+        <div class="spot-grid" id="spotsGrid">
+            <div class="spot-card">
+                <img src="./img/parquemonçoes.jpg" alt="Parque das Monções">
+                <h3>Parque das Monções</h3>
+                <p>Um lugar histórico às margens do Rio Tietê, perfeito para fotos e passeios.</p>
+                <button class="btn btn-primary" onclick="openDetails('parqueMoncoes')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/igreja.jpg" alt="Igreja Matriz">
+                <h3>Igreja Matriz Nossa Senhora Mãe dos Homens</h3>
+                <p>Uma joia barroca com azulejos que contam a história da cidade.</p>
+                <button class="btn btn-primary" onclick="openDetails('igrejaMatriz')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/engenho.jpg" alt="Engenho Central">
+                <h3>Engenho Central</h3>
+                <p>Primeiro engenho de açúcar do estado, cheio de história e nostalgia.</p>
+                <button class="btn btn-primary" onclick="openDetails('engenhoCentral')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/gruta.jpg" alt="Gruta de Lourdes">
+                <h3>Gruta de Nossa Senhora de Lourdes</h3>
+                <p>Um cantinho de paz no Parque das Monções, com vista para o rio.</p>
+                <button class="btn btn-primary" onclick="openDetails('grutaLourdes')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/monçõesmuseu.jpg" alt="Museu das Monções">
+                <h3>Museu das Monções</h3>
+                <p>Guarda a história das expedições bandeirantes com mapas e objetos antigos.</p>
+                <button class="btn btn-primary" onclick="openDetails('museuMoncoes')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/praça.jpg" alt="Praça da Matriz">
+                <h3>Praça da Matriz</h3>
+                <p>Um ponto central com árvores antigas e um clima perfeito para relaxar.</p>
+                <button class="btn btn-primary" onclick="openDetails('pracaMatriz')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/MONUMENTO.jpg" alt="Monumento aos Bandeirantes">
+                <h3>Monumento aos Bandeirantes</h3>
+                <p>Uma homenagem aos exploradores que partiram de Porto Feliz.</p>
+                <button class="btn btn-primary" onclick="openDetails('monumentoBandeirantes')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/estação.jpg" alt="Estação Cultural">
+                <h3>Estação Cultural</h3>
+                <p>Antiga estação ferroviária transformada em espaço cultural vibrante.</p>
+                <button class="btn btn-primary" onclick="openDetails('estacaoCultural')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/ponte.jpg" alt="Ponte Metálica">
+                <h3>Ponte Metálica</h3>
+                <p>Uma ponte histórica sobre o Rio Tietê, símbolo da engenharia antiga.</p>
+                <button class="btn btn-primary" onclick="openDetails('ponteMetalica')">Saiba Mais</button>
+            </div>
+            <div class="spot-card">
+                <img src="./img/fazenda.jpg" alt="Fazenda Boa Vista">
+                <h3>Fazenda Boa Vista</h3>
+                <p>Uma fazenda histórica que reflete o auge do café na região.</p>
+                <button class="btn btn-primary" onclick="openDetails('fazendaBoaVista')">Saiba Mais</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Depoimento -->
+    <section class="testimonial-section" id="testimonial">
+        <h2>Histórias que Nos Inspiram</h2>
+        <div class="testimonial">
+            <p>"Eu adorava passear pelo Parque das Monções com meus pais. Era um lugar de paz e alegria, onde a gente ouvia o som do rio e sentia a história viva!"</p>
+            <p>- Vovó Maria</p>
+        </div>
+        <div class="testimonial">
+            <p>"Uma lembrança especial que tenho é na gruta. Na época de Natal, Porto Feliz faz uma celebração com atrações, comidas, etc. Nesse dia em que fomos, foi especial, pois andamos e, onde quer que fôssemos, havia decoração de Natal. Inclusive, a porção de tilápia estava muito boa. Com certeza, é uma memória que me lembra minha namorada."</p>
+            <p>- Gustavo Champam</p>
+        </div>
+    </section>
+
+    <!-- Seção de Dicas Locais -->
+    <section class="dicas-section" id="dicas">
+        <h2>Dicas Locais</h2>
+        <div class="dicas-container">
+            <p>- wgygsygsygsysr!</p>
+            <p>- Teatros em Porto Feliz, inclusive minha namorada participa.</p>
+            <p>- No natal Porto Feliz faz uma celebração temática muito bonita e legal.</p>
+        </div>
+    </section>
+
+    <!-- Modal de Detalhes -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('detailsModal')">×</span>
+            <h2>Detalhes do Ponto Turístico</h2>
+            <div id="tripDetails" class="trip-details">
+                <div class="details-group">
+                    <label>Nome:</label>
+                    <p id="detailName"></p>
+                </div>
+                <div class="details-group">
+                    <label>Descrição:</label>
+                    <p id="detailDescription"></p>
+                </div>
+                <div class="details-group">
+                    <label>Localização:</label>
+                    <p id="detailLocation"></p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="closeModal('detailsModal')" class="btn-voltar">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <img class="img-logo-footer" src="./img/traveling-logo.png" alt="Logo Porto Feliz por Nós">
+            <h3>Porto Feliz por Nós</h3>
+            <p>Um projeto de Gustavo Champam</p>
+            <div class="social-links">
+                <a href="https://github.com/GustavoChampam" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gustavo-champam" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:gustavo@example.com" title="E-mail"><i class="fa fa-envelope"></i></a>
+                <a href="https://web.whatsapp.com/send?phone=5511999999999" target="_blank" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="social-links">
+                <p>Tecnologias</p>
+                <a href="#"><i class="fab fa-html5" title="HTML 5"></i></a>
+                <a href="#"><i class="fab fa-css3" title="CSS 3"></i></a>
+                <a href="#"><i class="fab fa-js" title="JavaScript"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

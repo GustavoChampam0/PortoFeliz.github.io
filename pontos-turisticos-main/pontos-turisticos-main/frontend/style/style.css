@@ -1,0 +1,361 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Styles */
+header {
+   background-color: white;
+   padding: 1rem;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+   position: fixed;
+   width: 100%;
+   z-index: 1000;
+}
+
+.header-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 60px;
+}
+
+.logo {
+   font-size: 24px;
+   font-weight: bold;
+   color: #2c3e50;
+   cursor: default;
+}
+
+.logo img {
+   width: 100px;
+}
+
+.img-logo-footer {
+   width: 200px;
+}
+
+.nav-links a {
+   text-decoration: none;
+   color: #2c3e50;
+   margin-left: 2rem;
+   font-weight: 500;
+}
+
+.nav-links a:hover {
+   color: #2980b9;
+}
+
+/* Hero Section */
+.hero {
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 89, 255, 0.555));
+   background-size: cover;
+   background-position: center;
+   height: 80vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+   text-align: center;
+   padding: 1rem;
+}
+
+.hero-content {
+   max-width: 800px;
+}
+
+.hero h1 {
+   font-size: 3rem;
+   margin-bottom: 1rem;
+}
+
+.hero p {
+   font-size: 1.2rem;
+   margin-bottom: 2rem;
+}
+
+/* Carrossel */
+.carousel-item img,
+.carousel-item video {
+   width: 100%;
+   height: 500px;
+   object-fit: cover; /* Mantém proporção para imagens e vídeos */
+}
+
+/* Results Section */
+.results-section {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 4rem 1rem;
+}
+
+.results-section h2 {
+   font-size: 2rem;
+   color: #2c3e50;
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.spot-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 2rem;
+   margin-top: 2rem;
+}
+
+/* Cards */
+.spot-card {
+   width: 300px;
+   height: auto;
+   max-height: 550px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 20px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   border-radius: 12px;
+   background-color: #fff;
+   box-sizing: border-box;
+   overflow: hidden;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   opacity: 0; /* Começa invisível para o efeito fade-in */
+   animation: fadeIn 0.5s ease forwards; /* Animação de fade-in */
+}
+
+.spot-card:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 6px 15px rgba(0, 0, 
+   0, 0.2);
+}
+
+.spot-card img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   border-radius: 8px;
+}
+
+.spot-card h3 {
+   font-size: 18px;
+   margin: 1rem 0;
+   color: #34495e;
+}
+
+.spot-card p {
+   font-size: 14px;
+   line-height: 1.6;
+   margin-bottom: 1rem;
+   color: #666;
+}
+
+/* Efeito fade-in com atraso progressivo */
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.spot-card:nth-child(1) { animation-delay: 0.1s; }
+.spot-card:nth-child(2) { animation-delay: 0.2s; }
+.spot-card:nth-child(3) { animation-delay: 0.3s; }
+.spot-card:nth-child(4) { animation-delay: 0.4s; }
+.spot-card:nth-child(5) { animation-delay: 0.5s; }
+.spot-card:nth-child(6) { animation-delay: 0.6s; }
+.spot-card:nth-child(7) { animation-delay: 0.7s; }
+.spot-card:nth-child(8) { animation-delay: 0.8s; }
+.spot-card:nth-child(9) { animation-delay: 0.9s; }
+.spot-card:nth-child(10) { animation-delay: 1.0s; }
+
+.btn {
+   padding: 1rem 2rem;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-weight: 500;
+   transition: all 0.3s ease;
+}
+
+.btn-primary {
+   background-color: #3498db;
+   color: white;
+}
+
+.btn-primary:hover {
+   background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+   .spot-card {
+      width: 100%;
+      margin-bottom: 20px;
+   }
+
+   .spot-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+   }
+}
+
+/* Testimonial Section */
+.testimonial-section {
+   padding: 4rem 1rem;
+   background-color: #f8f9fa;
+   text-align: center;
+}
+
+.testimonial-section h2 {
+   font-size: 2rem;
+   color: #2c3e50;
+   margin-bottom: 2rem;
+}
+
+.testimonial {
+   max-width: 800px;
+   margin: 0 auto 1.5rem auto; /* Margem inferior para separar múltiplos depoimentos */
+   background-color: white;
+   padding: 2rem;
+   border-radius: 8px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+   font-size: 1.2rem;
+   color: #34495e;
+   line-height: 1.6;
+}
+
+.testimonial p:last-child {
+   font-style: italic;
+   color: #666;
+   margin-top: 1rem;
+}
+
+/* Dicas Section */
+.dicas-section {
+   padding: 4rem 1rem;
+   background-color: #fff;
+   text-align: center;
+}
+
+.dicas-section h2 {
+   font-size: 2rem;
+   color: #2c3e50;
+   margin-bottom: 2rem;
+}
+
+.dicas-container {
+   max-width: 800px;
+   margin: 0 auto;
+   text-align: left;
+}
+
+.dicas-container p {
+   font-size: 1.1rem;
+   color: #34495e;
+   line-height: 1.6;
+   margin-bottom: 1rem;
+}
+
+/* Modal */
+.modal {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.5);
+   z-index: 1001;
+}
+
+.modal-content {
+   background-color: white;
+   max-width: 600px;
+   margin: 2rem auto;
+   padding: 2rem;
+   border-radius: 8px;
+   position: relative;
+   max-height: 90vh;
+   overflow-y: auto;
+}
+
+.close-modal {
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+   font-size: 1.5rem;
+   cursor: pointer;
+}
+
+.trip-details {
+   padding: 20px;
+}
+
+.details-group {
+   margin-bottom: 15px;
+}
+
+.details-group label {
+   font-weight: bold;
+   display: block;
+   margin-bottom: 5px;
+   color: #333;
+}
+
+.details-group p {
+   margin: 0;
+   padding: 8px;
+   background-color: #f8f9fa;
+   border-radius: 4px;
+}
+
+.modal-footer {
+   margin-top: 20px;
+   text-align: center;
+}
+
+.btn-voltar {
+   padding: 8px 16px;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+.btn-voltar:hover {
+   background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+   background-color: #012446;
+   color: white;
+   padding: 4rem 1rem;
+   margin-top: 4rem;
+}
+
+.footer-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.social-links {
+   margin-top: 2rem;
+}
+
+.social-links a {
+   color: white;
+   margin: 0 1rem;
+   font-size: 1.5rem;
+}
